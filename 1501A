@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define llu long long unsigned
+#define vec vector <int> v
+#define pb push_back
+void solve()
+{
+ long int n,blast=0,i,total=0,tot=0;
+ cin>>n;
+ long int a[n],b[n],tm[n];
+ for(i=0;i<n;i++)
+ {
+   cin>>a[i]>>b[i];
+ }
+ for(i=0;i<n;i++)
+ {
+   cin>>tm[i];
+ }
+ for(i=0;i<n;i++)
+ {
+   tot=a[i]-blast+tm[i];
+ 
+   if(i!=n-1)
+   tot+=ceil((b[i]-a[i])/(2.0));
+    total+=tot;
+  
+   if(total<b[i]&&i!=n-1)
+   total=b[i];
+   
+   blast=b[i];
+ }
+ cout<<total<<endl;
+} 
+
+int main()
+{
+  long int t,n;
+  cin>>t;
+  while(t--)
+  {
+     solve();
+  }
+}
